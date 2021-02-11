@@ -7,13 +7,14 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class QiitaViewController: UIViewController {
     
     @IBOutlet var qiitaTableView: UITableView!
     
     private var cellId = "Cell"
-    private var articles: [Article] = []
+    private var articles: [ArticleModel] = []
     
     
     override func viewDidLoad() {
@@ -21,13 +22,20 @@ class QiitaViewController: UIViewController {
         
         qiitaTableView.dataSource  = self
         
-        QiitaModel.fetchArticle { (articles) in
+        
+        QiitaAPI.fetchArticle { (articles) in
             self.articles = articles
             DispatchQueue.main.async {
                 self.qiitaTableView.reloadData()
             }
-            
         }
+//        QiitaModel.fetchArticle { (articles) in
+//            self.articles = articles
+//            DispatchQueue.main.async {
+//                self.qiitaTableView.reloadData()
+//            }
+//
+//        }
     }
 
 }
