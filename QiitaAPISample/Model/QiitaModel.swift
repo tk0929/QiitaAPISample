@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 struct QiitaModel {
 
@@ -30,6 +31,7 @@ struct QiitaModel {
             do {
                 let articles = try JSONDecoder().decode([Article].self, from: jsonData)
                 completion(articles)
+                print(articles)
             } catch {
                 print(error.localizedDescription)
             }
