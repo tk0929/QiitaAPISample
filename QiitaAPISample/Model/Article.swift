@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct QiitaStruct: Codable{
+struct Article: Codable{
     
     var title: String
     var user: User
     
     struct User: Codable {
-        var name: String
+        var id: String
         
     }
     
