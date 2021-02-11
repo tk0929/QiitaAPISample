@@ -16,12 +16,9 @@ class QiitaViewController: UIViewController {
     private var articles: [Article] = []
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "最新記事"
-    
         qiitaTableView.dataSource  = self
         
         QiitaModel.fetchArticle { (articles) in
